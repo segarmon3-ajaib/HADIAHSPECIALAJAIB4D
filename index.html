@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat! Hadiah Anda</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* Loading spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pulse CTA */
+@keyframes pulseCTA {
+  0%,100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,204,0,0.6); }
+  50% { transform: scale(1.08); box-shadow: 0 0 40px rgba(255,204,0,0.9); }
+}
+.animate-pulse-cta {
+  animation: pulseCTA 1.5s infinite;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+</style>
+</head>
+
+<body class="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center justify-center text-white">
+
+<!-- LOADING -->
+<div id="loading" class="text-center">
+  <div class="mx-auto mb-6 w-20 h-20 border-4 border-yellow-400 border-t-transparent rounded-full" style="animation: spin 1s linear infinite;"></div>
+  <h1 class="text-2xl font-bold text-yellow-400 mb-2">MEMUAT PEMENANG...</h1>
+  <p class="text-gray-400">Mohon tunggu, sistem sedang memproses hadiah Anda</p>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="hidden text-center max-w-lg w-full px-6 fade-in">
+  <div class="bg-gradient-to-br from-yellow-500 to-yellow-400 rounded-3xl p-8 shadow-2xl border-4 border-yellow-300">
+    <div class="text-6xl mb-4">🎉</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-2">
+      SELAMAT!
+    </h2>
+    <p class="text-black text-lg mb-4">
+      Anda berhasil mendapatkan hadiah
+    </p>
+
+    <div class="bg-black bg-opacity-20 rounded-xl py-4 px-4 mb-6">
+      <p class="text-2xl font-bold text-black">
+        💰 BONUS SALDO RP 100.000
+      </p>
+    </div>
+
+    <p class="text-sm text-black mb-6">
+      📸 Silakan screenshot halaman ini dan kirim ke Live Chat untuk klaim hadiah.
+    </p>
+
+    <!-- CTA -->
+    <a href="https://shorthe.link" target="_blank"
+       class="block bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-extrabold py-4 rounded-full text-xl shadow-xl animate-pulse-cta">
+      🚀 KLAIM HADIAH SEKARANG
+    </a>
+
+    <p class="text-xs text-black mt-4 opacity-80">
+      * Hadiah terbatas, klaim sekarang sebelum hangus
+    </p>
+  </div>
+</div>
+
+<script>
+/* SIMULASI LOADING */
+setTimeout(() => {
+  document.getElementById('loading').classList.add('hidden');
+  document.getElementById('result').classList.remove('hidden');
+}, 3000);
+</script>
+
+</body>
+</html>
